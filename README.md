@@ -1,56 +1,37 @@
 # MINAC Equipamentos - Landing Page
 
-Landing page moderna de alta conversão para assistência técnica e manutenção preventiva e corretiva de equipamentos de Pilates e Fitness.
+---
+
+## 🛑 Por que deu TELA BRANCA no GitHub Pages?
+
+Quando você comita o repositório no GitHub, a raiz contém o arquivo `src/main.tsx` (TypeScript). Os navegadores não conseguem ler arquivos `.tsx` diretamente — eles precisam da versão compilada (HTML + JavaScript puro).
+
+Por isso criamos a pasta **/docs** já compilada e pronta para o GitHub Pages!
 
 ---
 
-## 🌐 Como Publicar no GitHub Pages (2 Maneiras Fáceis)
+## 🚀 Como resolver a tela branca em 3 cliques no GitHub:
 
-O projeto já está configurado com `base: './'` para nunca dar erro 404 de assets no GitHub Pages!
+1. No seu repositório no GitHub, clique na aba **Settings** (Configurações) no topo.
+2. No menu lateral esquerdo, clique em **Pages**.
+3. Em **Build and deployment**:
+   - **Source:** Selecione `Deploy from a branch`
+   - **Branch:** Selecione `main` (ou `master`)
+   - **Pasta (Folder):** Mude de `/ (root)` para 👉 **/docs**
+4. Clique no botão **Save**!
 
-### Método 1: Automático via GitHub Actions (Recomendado)
-Este projeto já inclui o fluxo automático em `.github/workflows/deploy.yml`.
-
-1. Suba o código para o seu repositório no GitHub (`git push`).
-2. No seu repositório no GitHub, clique em **Settings** (Configurações) no menu superior.
-3. No menu lateral esquerdo, clique em **Pages**.
-4. Em **Build and deployment** > **Source**, mude de *"Deploy from a branch"* para:
-   👉 **GitHub Actions**
-5. Pronto! O GitHub irá compilar o Vite e publicar seu site automaticamente em menos de 1 minuto em `https://seu-usuario.github.io/seu-repositorio/`.
+Aguarde 30 segundos e atualize a página (`Ctrl + F5`). O site abrirá perfeitamente!
 
 ---
 
-### Método 2: Pelo Terminal com o comando `npm run deploy`
-Se preferir publicar diretamente do seu computador:
-
-```bash
-# 1. Instalar dependências
-npm install
-
-# 2. Executar o deploy
-npm run deploy
-```
-
-O comando irá gerar o build de produção e criar/atualizar o branch `gh-pages` automaticamente no GitHub.
-
-Depois, no seu repositório:
-- Acesse **Settings** > **Pages**.
-- Em **Source**, selecione **Deploy from a branch**.
-- Selecione o branch **gh-pages** e pasta **/(root)** e clique em **Save**.
+## ⚡ Alternativa Automática (GitHub Actions):
+Se preferir que o próprio GitHub compile tudo sozinho sem precisar da pasta `docs`:
+1. Em **Settings** > **Pages**.
+2. Em **Source**, escolha **GitHub Actions**.
+3. Ele usará o arquivo `.github/workflows/deploy.yml` que já deixamos configurado.
 
 ---
 
-## ⚡ Como Publicar na Vercel
-
-1. Acesse [vercel.com](https://vercel.com) e clique em **Add New Project**.
-2. Conecte com o seu GitHub e selecione este repositório.
-3. A Vercel detectará automaticamente o Vite (`vercel.json` já está incluído).
-4. Clique em **Deploy**!
-
----
-
-## 🛠️ Comandos Locais
-
-- `npm run dev`: Inicia o servidor de desenvolvimento local.
-- `npm run build`: Compila para produção na pasta `dist/`.
-- `npm run preview`: Testa o build de produção localmente.
+## 💻 Para rodar ou compilar localmente:
+- `npm run dev`: Executa em modo de desenvolvimento local.
+- `npm run build`: Atualiza as pastas `dist/` e `docs/` para commit.
