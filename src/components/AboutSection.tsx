@@ -56,16 +56,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuote }) => {
     },
   ];
 
-  const brands = [
-    'MetaLife',
-    'Physio Pilates',
-    'Kauffer',
-    'Kraft Pilates',
-    'Balanced Body',
-    'Movement',
-    'Matrix',
-    'Lion Fitness',
-  ];
+
 
   return (
     <section id="sobre" className="w-full bg-[#0a0b0e] py-16 lg:py-24 border-b border-[#1f2026] scroll-mt-20 relative overflow-hidden">
@@ -164,24 +155,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuote }) => {
 
         </div>
 
-        {/* Brands Strip */}
-        <div className="mt-14 pt-8 border-t border-[#1a1b22]">
-          <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest text-center sm:text-left mb-4">
-            Compatibilidade técnica e reposição para as principais marcas do mercado:
-          </div>
-          <div className="flex flex-wrap items-center gap-y-3 gap-x-6 sm:gap-x-8 text-xs font-medium text-gray-400">
-            {brands.map((brand, i) => (
-              <span key={brand} className="flex items-center gap-6">
-                <span className="hover:text-white transition-colors cursor-default">{brand}</span>
-                {i < brands.length - 1 && (
-                  <span className="text-gray-700 hidden sm:inline select-none" aria-hidden="true">
-                    ·
-                  </span>
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
+
 
       </div>
     </section>
