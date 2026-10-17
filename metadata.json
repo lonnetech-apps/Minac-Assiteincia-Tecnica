@@ -1,0 +1,6 @@
+{
+  "name": "MINAC Equipamentos - Assistência Técnica Pilates & Fitness",
+  "description": "Landing page de assistência técnica e manutenção preventiva e corretiva para equipamentos de Pilates e Fitness. Peças originais, equipe especializada e atendimento ágil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
