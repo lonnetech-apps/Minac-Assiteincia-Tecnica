@@ -41,15 +41,19 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, phoneRa
   ];
 
   const handleSendWhatsApp = () => {
-    const text = `*Solicitação de Orçamento - MINAC Equipamentos*
-👤 *Nome:* ${name || 'Não informado'}
-🏢 *Estúdio/Academia:* ${studioName || 'Não informado'}
-📍 *Cidade:* ${city || 'São Paulo/SP'}
-📞 *Telefone:* ${phone || 'Contato WhatsApp'}
-⚙️ *Equipamento:* ${equipmentType}
-🔧 *Serviço Desejado:* ${serviceType}
-🔢 *Quantidade:* ${quantity}
-📝 *Observações:* ${notes || 'Solicito orçamento e disponibilidade técnica.'}`;
+    const text = `Olá, equipe técnica da MINAC!
+
+Gostaria de solicitar um orçamento para manutenção:
+• Nome / Responsável: ${name || 'A definir'}
+• Estúdio ou Clínica: ${studioName || 'Estúdio'}
+• Localização: ${city || 'São Paulo'}
+• Contato: ${phone || 'WhatsApp'}
+• Equipamentos: ${equipmentType}
+• Tipo de Serviço: ${serviceType}
+• Quantidade: ${quantity}
+• Observações do problema: ${notes || 'Solicito orçamento e disponibilidade para visita técnica.'}
+
+Poderiam me informar valores e disponibilidade de agenda? Obrigado!`;
 
     const url = `https://wa.me/${phoneRaw}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');

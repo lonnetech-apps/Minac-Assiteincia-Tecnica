@@ -11,25 +11,19 @@ interface FooterProps {
   website: string;
   socialHandle: string;
   companyLegal: string;
-  isEditMode: boolean;
-  onUpdateField: (field: string, value: string) => void;
   onOpenContact: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
-  brandName,
-  brandSubtitle,
   phone,
   phoneRaw,
   website,
   socialHandle,
   companyLegal,
-  isEditMode,
-  onUpdateField,
   onOpenContact,
 }) => {
   return (
-    <footer id="contato" className="relative w-full bg-[#090a0d] border-t border-[#1e1f24] overflow-hidden pt-12 pb-14 text-sm">
+    <footer id="contato" className="relative w-full bg-[#090a0d] border-t border-[#1e1f24] overflow-hidden pt-12 pb-14 text-sm scroll-mt-20">
       {/* Decorative concentric arcs in the bottom right corner matching reference image */}
       <BackgroundArcs
         variant="footer"
@@ -52,24 +46,14 @@ export const Footer: React.FC<FooterProps> = ({
             {/* Phone */}
             <div className="flex items-center gap-2.5">
               <Phone className="w-4 h-4 text-orange-500 shrink-0" />
-              {isEditMode ? (
-                <input
-                  type="text"
-                  value={phone}
-                  onChange={(e) => onUpdateField('phone', e.target.value)}
-                  className="bg-black/60 border border-orange-500/50 rounded px-2 py-0.5 text-xs text-white"
-                  title="Editar telefone"
-                />
-              ) : (
-                <a
-                  href={`https://wa.me/${phoneRaw}?text=${encodeURIComponent('Olá, gostaria de saber mais sobre a assistência técnica da MINAC!')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-orange-400 font-medium transition-colors"
-                >
-                  {phone}
-                </a>
-              )}
+              <a
+                href={`https://wa.me/${phoneRaw}?text=${encodeURIComponent('Olá, gostaria de saber mais sobre a assistência técnica da MINAC!')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-orange-400 font-medium transition-colors"
+              >
+                {phone}
+              </a>
             </div>
 
             <span className="hidden sm:inline text-gray-600 select-none">|</span>
@@ -77,24 +61,14 @@ export const Footer: React.FC<FooterProps> = ({
             {/* Website */}
             <div className="flex items-center gap-2.5">
               <Globe className="w-4 h-4 text-orange-500 shrink-0" />
-              {isEditMode ? (
-                <input
-                  type="text"
-                  value={website}
-                  onChange={(e) => onUpdateField('website', e.target.value)}
-                  className="bg-black/60 border border-orange-500/50 rounded px-2 py-0.5 text-xs text-white"
-                  title="Editar website"
-                />
-              ) : (
-                <a
-                  href={`https://${website.replace(/^https?:\/\//, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-orange-400 transition-colors"
-                >
-                  {website}
-                </a>
-              )}
+              <a
+                href={`https://${website.replace(/^https?:\/\//, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-orange-400 transition-colors"
+              >
+                {website}
+              </a>
             </div>
 
             <span className="hidden sm:inline text-gray-600 select-none">|</span>
@@ -131,19 +105,9 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </div>
 
-              {isEditMode ? (
-                <input
-                  type="text"
-                  value={socialHandle}
-                  onChange={(e) => onUpdateField('socialHandle', e.target.value)}
-                  className="bg-black/60 border border-orange-500/50 rounded px-2 py-0.5 text-xs text-white"
-                  title="Editar @rede social"
-                />
-              ) : (
-                <span className="text-gray-400 text-xs sm:text-sm font-normal">
-                  {socialHandle}
-                </span>
-              )}
+              <span className="text-gray-400 text-xs sm:text-sm font-normal">
+                {socialHandle}
+              </span>
             </div>
 
           </div>
@@ -153,17 +117,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Legal notice line matching bottom of reference screenshot */}
         <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-gray-400">
           <div>
-            {isEditMode ? (
-              <input
-                type="text"
-                value={companyLegal}
-                onChange={(e) => onUpdateField('companyLegal', e.target.value)}
-                className="bg-black/60 border border-orange-500/50 rounded px-2 py-0.5 text-xs text-white w-full max-w-lg"
-                title="Editar razão social"
-              />
-            ) : (
-              <span>{companyLegal}</span>
-            )}
+            <span>{companyLegal}</span>
           </div>
 
           <div className="flex items-center gap-4 text-gray-400">
@@ -171,7 +125,7 @@ export const Footer: React.FC<FooterProps> = ({
             <span>·</span>
             <button
               onClick={onOpenContact}
-              className="text-orange-400 hover:text-orange-300 underline font-medium"
+              className="text-orange-400 hover:text-orange-300 underline font-medium cursor-pointer"
             >
               Atendimento Online
             </button>

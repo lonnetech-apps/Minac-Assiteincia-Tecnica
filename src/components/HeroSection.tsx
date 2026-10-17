@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { BackgroundArcs } from './BackgroundArcs';
 import heroImage from '../assets/images/pilates_hero_maintenance_1792259120307.jpg';
 
@@ -8,8 +8,6 @@ interface HeroSectionProps {
   heroTitle: string;
   heroDescription: string;
   heroCtaText: string;
-  isEditMode: boolean;
-  onUpdateField: (field: string, value: string) => void;
   onOpenQuote: () => void;
 }
 
@@ -18,12 +16,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   heroTitle,
   heroDescription,
   heroCtaText,
-  isEditMode,
-  onUpdateField,
   onOpenQuote,
 }) => {
   return (
-    <section id="inicio" className="relative w-full overflow-hidden bg-[#0d0e11] pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-[#202126]">
+    <section id="inicio" className="relative w-full overflow-hidden bg-[#0d0e11] pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-[#202126] scroll-mt-20">
       {/* Decorative concentric arcs matching reference image */}
       <BackgroundArcs
         variant="hero"
@@ -38,63 +34,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             
             {/* Kicker / Subtitle */}
             <div className="inline-block">
-              {isEditMode ? (
-                <input
-                  type="text"
-                  value={kicker}
-                  onChange={(e) => onUpdateField('kicker', e.target.value)}
-                  className="bg-black/60 border border-orange-500/50 rounded px-2.5 py-1 text-xs text-orange-300 font-semibold tracking-[0.25em] uppercase w-full max-w-sm"
-                  title="Clique para editar o subtítulo"
-                />
-              ) : (
-                <span
-                  className="text-xs sm:text-sm font-semibold tracking-[0.24em] text-gray-400 uppercase select-none block"
-                  style={{ letterSpacing: '0.22em' }}
-                >
-                  {kicker}
-                </span>
-              )}
+              <span
+                className="text-xs sm:text-sm font-semibold tracking-[0.24em] text-gray-400 uppercase select-none block"
+                style={{ letterSpacing: '0.22em' }}
+              >
+                {kicker}
+              </span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-1">
-              {isEditMode ? (
-                <textarea
-                  value={heroTitle}
-                  onChange={(e) => onUpdateField('heroTitle', e.target.value)}
-                  rows={3}
-                  className="w-full bg-black/60 border border-orange-500/50 rounded-lg p-2.5 text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight font-brand"
-                  title="Clique para editar o título principal"
-                />
-              ) : (
-                <h1 className="text-3xl sm:text-5xl lg:text-[3.4rem] font-bold text-white tracking-tight leading-[1.12] font-brand whitespace-pre-line">
-                  {heroTitle}
-                </h1>
-              )}
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.4rem] font-bold text-white tracking-tight leading-[1.12] font-brand whitespace-pre-line">
+                {heroTitle}
+              </h1>
             </div>
 
             {/* Description Text */}
             <div className="max-w-xl">
-              {isEditMode ? (
-                <textarea
-                  value={heroDescription}
-                  onChange={(e) => onUpdateField('heroDescription', e.target.value)}
-                  rows={2}
-                  className="w-full bg-black/60 border border-orange-500/50 rounded-lg p-2 text-base text-gray-200 leading-relaxed"
-                  title="Clique para editar a descrição"
-                />
-              ) : (
-                <p className="text-base sm:text-lg text-gray-300 font-normal leading-relaxed">
-                  {heroDescription}
-                </p>
-              )}
+              <p className="text-base sm:text-lg text-gray-300 font-normal leading-relaxed">
+                {heroDescription}
+              </p>
             </div>
 
             {/* Primary Action Button (Solicitar Orçamento) */}
             <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <button
                 onClick={onOpenQuote}
-                className="group w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#e65c00] via-[#ea580c] to-[#f97316] hover:from-[#d35400] hover:to-[#ea580c] text-white font-medium text-base shadow-xl shadow-orange-950/40 hover:shadow-orange-700/30 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3"
+                className="group w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#e65c00] via-[#ea580c] to-[#f97316] hover:from-[#d35400] hover:to-[#ea580c] text-white font-medium text-base shadow-xl shadow-orange-950/40 hover:shadow-orange-700/30 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3 cursor-pointer"
               >
                 {/* WhatsApp styled icon */}
                 <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
@@ -107,14 +73,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </button>
 
               <div className="flex items-center gap-2 text-xs text-gray-400 pl-1">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Atendimento rápido para todo o Estado</span>
+                <span className="w-2 h-2 rounded-full bg-[#1f6836] shrink-0" />
+                <span>São Paulo, Grande SP e Região · Atendimento in-loco programado</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Hero Graphic / Photo with seamless dark vignette blending */}
+          {/* Right Column: Hero Photo with seamless dark vignette blending */}
           <div className="lg:col-span-6 relative mt-4 lg:mt-0">
             <div className="relative mx-auto max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-[#121317]">
               
@@ -129,8 +95,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Seamless atmospheric edge fades matching dark layout */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#0d0e11] via-transparent to-transparent opacity-80 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d0e11] via-transparent to-black/20 pointer-events-none" />
-              
-
 
             </div>
           </div>
