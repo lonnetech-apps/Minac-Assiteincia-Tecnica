@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { BackgroundArcs } from './BackgroundArcs';
-import heroImage from '../assets/images/pilates_hero_maintenance_1792259120307.jpg';
+import heroImage from '../assets/images/real_pilates_reformer_service_1792266415523.jpg';
 
 interface HeroSectionProps {
   kicker: string;
@@ -84,17 +84,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-6 relative mt-4 lg:mt-0">
             <div className="relative mx-auto max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-[#121317]">
               
-              {/* Main Photo: Hands in black gloves adjusting pilates reformer */}
+              {/* Main Photo: Real Pilates Reformer undergoing maintenance in studio */}
               <img
                 src={heroImage}
-                alt="Técnico realizando manutenção preventiva e calibração de molas em equipamento de Pilates"
-                className="w-full h-[340px] sm:h-[420px] lg:h-[460px] object-cover object-center filter brightness-[0.92] contrast-[1.08] hover:scale-105 transition-transform duration-700 ease-out"
+                alt="Técnico realizando revisão e troca de molas em aparelho de Pilates Reformer em estúdio"
+                className="w-full h-[360px] sm:h-[430px] lg:h-[490px] object-cover object-center filter brightness-[0.98] contrast-[1.03] hover:scale-[1.02] transition-transform duration-500 ease-out"
                 loading="eager"
               />
 
               {/* Seamless atmospheric edge fades matching dark layout */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0d0e11] via-transparent to-transparent opacity-80 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0e11] via-transparent to-black/20 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0d0e11]/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0e11]/90 via-transparent to-transparent pointer-events-none" />
 
             </div>
           </div>
